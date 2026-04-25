@@ -3,7 +3,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import os
-import re
 
 def clean_column_names(df):
     """Приводит названия колонок к snake_case для единообразия"""

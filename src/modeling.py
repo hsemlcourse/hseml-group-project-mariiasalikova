@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, roc_auc_score, f1_score, precision_recall_curve, auc
 import joblib
 import os

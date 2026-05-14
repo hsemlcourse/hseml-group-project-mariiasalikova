@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eth_fraud_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      # Монтируем данные и ноутбуки для live-редактирования
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+      - ./models:/app/models
+      - ./report:/app/report
+      - ./src:/app/src
+    environment:
+      - PYTHONHASHSEED=42
+    restart: unless-stopped
+
+  preprocess:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eth_fraud_preprocess
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    environment:
+      - PYTHONHASHSEED=42
+    command: ["python", "src/preprocessing.py"]
+    profiles:
+      - preprocess

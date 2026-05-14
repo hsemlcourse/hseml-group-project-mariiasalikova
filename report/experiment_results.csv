@@ -1,0 +1,9 @@
+Модель,Параметры,F1 (val),ROC-AUC,PR-AUC,Accuracy,Примечание
+StackingClassifier,"meta=LR, base=DT+RF+GB(+XGB+LGB)",0.9159,0.9902,0.9757,0.9647,Стекинг с LR как мета-моделью
+VotingClassifier (soft),"voting=soft, LR+RF+GB(+XGB)",0.9022,0.9885,0.9709,0.9599,Ансамбль мягким голосованием
+RandomForest,"{'n_estimators': 300, 'min_samples_split': 2, 'max_features': 'sqrt', 'max_depth': None}",0.9013,0.9889,0.973,0.9593,RandomizedSearchCV
+GradientBoosting,"{'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.2}",0.8979,0.9885,0.9711,0.9572,RandomizedSearchCV
+DecisionTree,"{'max_depth': 20, 'min_samples_leaf': 5}",0.8812,0.9478,0.9229,0.9484,GridSearch по max_depth + min_samples_leaf
+RF + PCA (n=23),"PCA n_components=23, RF n_estimators=200",0.8243,0.9668,0.9201,0.9274,Снижение размерности перед RF
+KNN,{'n_neighbors': 3},0.7948,0.92,0.8788,0.9138,GridSearch по n_neighbors
+LR Baseline (no FE),default,0.0469,0.8426,0.6116,0.7794,Baseline без feature engineering

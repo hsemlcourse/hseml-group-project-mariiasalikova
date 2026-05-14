@@ -73,3 +73,4 @@ def save_model(model, filename: str = "../models/best_model.pkl") -> None:
     os.makedirs(os.path.dirname(filename) if os.path.dirname(filename) else ".", exist_ok=True)
     joblib.dump(model, filename)
     print(f"Модель сохранена в {filename}")
+    

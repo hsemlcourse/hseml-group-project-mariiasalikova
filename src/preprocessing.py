@@ -124,6 +124,3 @@ if __name__ == "__main__":
         split_and_scale(df)
     else:
         print(f"Файл {raw_path} с исходным датасетом не найден в data/raw/")
-
-
-        

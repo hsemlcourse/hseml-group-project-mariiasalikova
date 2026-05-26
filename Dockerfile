@@ -35,3 +35,9 @@ EXPOSE 8888
 
 # По умолчанию запускаем Jupyter Lab
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
+
+# Устанавливаем порт для FastAPI
+EXPOSE 8000
+
+# Запускаем FastAPI через uvicorn
+CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]

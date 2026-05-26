@@ -34,3 +34,9 @@ typing_extensions==4.15.0
 
 # Testing
 pytest==8.3.3
+
+
+
+# Uvicorn, Fastapi
+uvicorn==0.34.0
+fastapi==0.115.11

@@ -156,6 +156,11 @@
 - Feature engineering (`ratio_sent_received`, `log_*`) значительно улучшает качество
 - PCA не даёт прироста — признаки уже достаточно информативны
 
+
+
+[Скриншот работы] (images/image.png)
+[Видео работы](https://drive.google.com/file/d/1aksdwKAP-prbiB2MUTpbHMZv7XZPY0TK/view?usp=sharing)
+
 ### Ограничения
 
 - Датасет относительно небольшой (~9к адресов) — возможно переобучение сложных моделей
@@ -164,7 +169,6 @@
 
 ### Возможные улучшения
 
-- Применить SMOTE или class_weight='balanced' для работы с дисбалансом
 - Добавить больше domain-specific признаков (паттерны активности по времени)
 - Деплой через FastAPI + Streamlit для онлайн-мониторинга
-- Explainability через SHAP-values
+

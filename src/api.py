@@ -1,4 +1,5 @@
 import os
+
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
@@ -23,18 +24,19 @@ def read_root():
 def predict_fraud(request: PredictRequest):
     if model is None:
         raise HTTPException(status_code=500, detail="Модель не загружена на сервере.")
-    
+
     try:
         # Преобразуем входящий JSON в DataFrame (одна строка)
         df = pd.DataFrame([request.features])
-        
+
         # Получаем предсказания
         prediction = model.predict(df)[0]
         probability = model.predict_proba(df)[0][1]
-        
+
         return {
             "is_fraud": bool(prediction),
             "fraud_probability": float(probability)
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    

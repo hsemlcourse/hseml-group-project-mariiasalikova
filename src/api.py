@@ -12,7 +12,7 @@ try:
     model = joblib.load(MODEL_PATH)
 except FileNotFoundError:
     model = None
-    
+
 class PredictRequest(BaseModel):
     features: dict
 
@@ -38,5 +38,4 @@ def predict_fraud(request: PredictRequest):
             "fraud_probability": float(probability)
         }
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    
+        raise HTTPException(status_code=400, detail=str(e)) from e
